@@ -1,13 +1,13 @@
 ### E-COMMERCE BEAUTY STORE 
 An E-commerce website where you can shop for all your beauty products
-#### TECH STACK
+#### tech. stack
 i. node.js
 ii. express.js
 iii. react.js
 iv. mongoDB
-#### WEBSITE FLOWCHART
+#### website flow chart
 https://excalidraw.com/#json=kS7QWLiGTqZF-r1BiZNYX,FC9mNJydIBTuoTArBUY5KA
-#### DOCUMENTATION 
-#### LIVE LINK 
-##### EMAIL
+#### documentation 
+#### live link 
+##### email
 believegilbert20@gmail.com 
