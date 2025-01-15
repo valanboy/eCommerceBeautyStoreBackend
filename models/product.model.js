@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//creating product schema
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -65,6 +66,7 @@ const productSchema = new mongoose.Schema(
   }
 );
 
+//creating product model that will take user schema upon importing
 const Product = mongoose.model("product", productSchema);
 
 export default Product;

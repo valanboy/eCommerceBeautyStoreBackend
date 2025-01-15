@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//creating banner schema
 const bannerSchema = new mongoose.Schema(
   {
     title: {
@@ -20,6 +21,7 @@ const bannerSchema = new mongoose.Schema(
   }
 );
 
+//creating banner model that will take banner schema upon importing
 const Banner = mongoose.model("banner", bannerSchema)
 
 export default Banner
