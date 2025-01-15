@@ -1,12 +1,12 @@
-### An e-commerce website where you can shop for all your beauty products
-#### Tech stack
+### An E-commerce website where you can shop for all your beauty products
+#### TECH STACK
 ##### node.js
 ##### express.js
 ##### react.js
 ##### mongoDB
-#### website wireframe
+#### WEBSITE FLOWCHART
 https://excalidraw.com/#json=kS7QWLiGTqZF-r1BiZNYX,FC9mNJydIBTuoTArBUY5KA
-#### documentation 
-#### live link 
-##### email
+#### DOCUMENTATION 
+#### LIVE LINK 
+##### EMAIL
 believegilbert20@gmail.com 
