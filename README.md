@@ -1,4 +1,5 @@
 #### E-COMMERCE BEAUTY STORE 
+###### note: this is the backend
 An E-commerce website where you can shop for all your beauty products
 #### tech. stack
 (i) node.js
