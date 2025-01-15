@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//creating order schema
 const orderSchema = new mongoose.Schema(
   {
     name: {
@@ -40,6 +41,7 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
+//creating order model that will take user schema upon importing
 const Order = mongoose.model("order", orderSchema);
 
 export default Order;

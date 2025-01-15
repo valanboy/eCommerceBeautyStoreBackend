@@ -1,30 +1,43 @@
 import express from "express";
-import dotenv from "dotenv"
-import cors from "cors"
+import dotenv from "dotenv";
+import cors from "cors";
 import { connectDB } from "./utils/Database.js";
+import { notFound, errorHandler } from "./middleware/error.middleware.js";
+import cookieParser from "cookie-parser";
+
+//configuring dotenv
 dotenv.config();
 
+//initializing express
 const app = express();
+
+//getting port from env
 const PORT = process.env.PORT;
+
 
 //MIDDLEWARES
 //express json(body)
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//cors
-app.use(cors())
+//cookie parser so we can make use of cookies
+app.use(cookieParser())
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+//custom error middleware
+app.use(notFound);
+app.use(errorHandler);
+
+//cors middleware
+app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-
 //server listening
-
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 
-//database connection
-connectDB()
+  //database connection
+  connectDB();
 });
