@@ -4,7 +4,7 @@ import cors from "cors";
 import { connectDB } from "./utils/Database.js";
 import { notFound, errorHandler } from "./middleware/error.middleware.js";
 import cookieParser from "cookie-parser";
-import authRoute from "./routes/auth.routes.js";
+import authRoute from "./routes/auth.routes.js"
 
 //configuring dotenv
 dotenv.config();
