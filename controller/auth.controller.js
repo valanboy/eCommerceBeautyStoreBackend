@@ -28,7 +28,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //check if the user has been created and generate a token for the user
   if (user) {
-    generateToken(user._id);
+    generateToken(res, user._id);
     res.status(201).json({
       _id: user._id,
       name: user.name,
@@ -62,7 +62,7 @@ const loginUser = asyncHandler(async(req, res)=>{
     }
  
     //generate jwt token for the user
-    generateToken(user._id)
+    generateToken(res, user._id)
 res.status(200).json({
  _id: user._id,
       name: user.name,

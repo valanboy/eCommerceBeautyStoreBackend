@@ -33,7 +33,7 @@ app.use(errorHandler);
 //cors middleware
 app.use(cors());
 
-app.get("/", )
+app.get("/", authRoute)
 
 //server listening
 app.listen(PORT, () => {
