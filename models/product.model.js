@@ -65,6 +65,9 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+ 
+//creating index for search functionality in product schema so the product.controller.js search logic can work
+productSchema.index({"$**": "text"});
 
 //creating product model that will take user schema upon importing
 const Product = mongoose.model("product", productSchema);

@@ -1,3 +1,4 @@
+import { error } from "console";
 import Product from "../models/product.model";
 import asyncHandler from "express-async-handler";
 
@@ -56,6 +57,46 @@ const getProduct = asyncHandler(async (req, res) => {
 
 //get all products
 
-const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({});
+const getAllProducts = asyncHandler(async (req, res) => {
+
+  const qnew = req.query.new;   //new is a query parameter
+  const qcategory = req.query.category; //category is a query parameter
+  const qsearch = req.query.search; //search is a query parameter
+
+  let products;
+
+if(qnew){
+products = await Product.find().sort({createdAt: -1});
+}else if(qcategory){
+products = await Product.find({categories:{$in:[qcategory]}})
+}else if(qsearch){
+  products = await Product.find({$text:{
+    $search:qsearch,
+    $caseSensitive:false,
+    $diacriticSensitive:false,
+  }})
+}else{
+products = await Product.find().sort({createdAt: -1});
+}
+
 });
+
+
+//rating a product
+
+const ratingProduct = asyncHandler(async (req, res) => {
+  const {star, name, comment, postedBy} = req.body;
+
+  if(star && name && comment && postedBy){
+    const postedBy = await Product.findById(req.params.id,
+      {$push:{ratings:{star, name, comment, postedBy}}},
+      {new:true}
+      );
+      res.status(200).json("product rated successfully!");
+  }else{
+    res.status(400)
+    throw new error("product rating failed");
+  }
+})
+
+export { createProduct, updateProduct, deleteProduct, getProduct, getAllProducts, ratingProduct };
